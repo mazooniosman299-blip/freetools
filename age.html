@@ -45,22 +45,36 @@
   <script src="app.js"></script>
   <script>
     document.getElementById("asof").valueAsDate = new Date();
+    function parseDay(value) {
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(value || "")) return null;
+      const [year, month, day] = value.split("-").map(Number);
+      const date = new Date(Date.UTC(year, month - 1, day));
+      if (date.getUTCFullYear() !== year || date.getUTCMonth() !== month - 1 || date.getUTCDate() !== day) return null;
+      return date;
+    }
+    function anniversary(start, offset) {
+      const y = start.getUTCFullYear(), m = start.getUTCMonth() + offset;
+      const daysInMonth = new Date(Date.UTC(y, m + 1, 0)).getUTCDate();
+      return new Date(Date.UTC(y, m, Math.min(start.getUTCDate(), daysInMonth)));
+    }
     function calc() {
-      const dob = new Date(document.getElementById("dob").value);
-      const asof = new Date(document.getElementById("asof").value || Date.now());
-      if (isNaN(dob) || isNaN(asof) || asof < dob) return;
-      let y = asof.getFullYear() - dob.getFullYear();
-      let m = asof.getMonth() - dob.getMonth();
-      let d = asof.getDate() - dob.getDate();
-      if (d < 0) {
-        m--;
-        const prev = new Date(asof.getFullYear(), asof.getMonth(), 0);
-        d += prev.getDate();
+      const birth = parseDay(document.getElementById("dob").value);
+      const asof = parseDay(document.getElementById("asof").value);
+      const box = document.getElementById("result");
+      if (!birth || !asof || asof < birth) {
+        box.style.display = "block";
+        document.getElementById("res-val").textContent = "—";
+        document.getElementById("res-label").textContent = "Enter valid dates; the reference date must not be before birth.";
+        return;
       }
-      if (m < 0) { y--; m += 12; }
-      document.getElementById("result").style.display = "block";
-      document.getElementById("res-val").textContent = `${y} y ${m} m ${d} d`;
-      document.getElementById("res-label").textContent = `Years: ${y}, Months: ${m}, Days: ${d}`;
+      let totalMonths = (asof.getUTCFullYear() - birth.getUTCFullYear()) * 12 + asof.getUTCMonth() - birth.getUTCMonth();
+      while (totalMonths > 0 && anniversary(birth, totalMonths) > asof) totalMonths--;
+      const base = anniversary(birth, totalMonths);
+      const years = Math.floor(totalMonths / 12), months = totalMonths % 12;
+      const days = Math.round((asof - base) / 86400000);
+      box.style.display = "block";
+      document.getElementById("res-val").textContent = years + " y " + months + " m " + days + " d";
+      document.getElementById("res-label").textContent = "Years: " + years + ", Months: " + months + ", Days: " + days;
     }
     document.getElementById("calc").addEventListener("click", calc);
     document.getElementById("dob").addEventListener("change", calc);
