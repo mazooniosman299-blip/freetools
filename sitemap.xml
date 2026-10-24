@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://mazooniosman299-blip.github.io/freetools/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mazooniosman299-blip.github.io/freetools/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://mazooniosman299-blip.github.io/freetools/?lang=ar"/>
   </url>
   <url>
     <loc>https://mazooniosman299-blip.github.io/freetools/unit.html</loc>
@@ -59,17 +56,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mazooniosman299-blip.github.io/freetools/guides/how-to-calculate-bmi.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://mazooniosman299-blip.github.io/freetools/guides/unit-conversion-guide.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://mazooniosman299-blip.github.io/freetools/guides/percentage-explained.html</loc>
+    <loc>https://mazooniosman299-blip.github.io/freetools/guide-bmi.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
