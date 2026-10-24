@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Percentage Calculator | FreeTools</title>
+  <meta name="description" content="Free percentage calculator: what is X% of Y, percentage change, increase or decrease. Arabic & English.">
+  <link rel="canonical" href="https://mazooniosman299-blip.github.io/freetools/percentage.html">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">FreeTools</a>
+      <div class="header-actions">
+        <button id="lang-toggle" class="btn-icon">العربية</button>
+        <button id="theme-toggle" class="btn-icon">🌙</button>
+      </div>
+    </div>
+  </header>
+  <main class="tool-page container">
+    <a href="index.html" class="back-link">← Back</a>
+    <h1 id="title">Percentage Calculator</h1>
+    <p class="tool-desc" id="desc">Calculate percentages, percentage of a number, or percentage change between two values.</p>
+    <div class="card">
+      <div class="form-row">
+        <div class="form-group">
+          <label id="l-mode">Mode</label>
+          <select id="mode">
+            <option value="of">What is X% of Y?</option>
+            <option value="is">X is what % of Y?</option>
+            <option value="change">Percentage change from X to Y</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label id="l-x">X</label>
+          <input type="number" id="x" value="20" step="any">
+        </div>
+        <div class="form-group">
+          <label id="l-y">Y</label>
+          <input type="number" id="y" value="150" step="any">
+        </div>
+      </div>
+      <button class="btn" id="calc">Calculate</button>
+      <div class="result-box" id="result" style="display:none">
+        <div class="value" id="res-val">—</div>
+        <div class="label" id="res-label"></div>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><p>© 2026 FreeTools</p></div></footer>
+  <script src="i18n.js"></script>
+  <script src="app.js"></script>
+  <script>
+    function calc() {
+      const mode = document.getElementById("mode").value;
+      const x = parseFloat(document.getElementById("x").value);
+      const y = parseFloat(document.getElementById("y").value);
+      if (isNaN(x) || isNaN(y)) return;
+      let out, label;
+      if (mode === "of") { out = (x / 100) * y; label = `${x}% of ${y} = ${out}`; }
+      else if (mode === "is") { out = y === 0 ? 0 : (x / y) * 100; label = `${x} is ${out.toFixed(2)}% of ${y}`; }
+      else { out = y === 0 ? 0 : ((y - x) / x) * 100; label = `Change from ${x} to ${y} = ${out.toFixed(2)}%`; }
+      document.getElementById("result").style.display = "block";
+      document.getElementById("res-val").textContent = typeof out === "number" ? parseFloat(out.toPrecision(8)) : out;
+      document.getElementById("res-label").textContent = label;
+    }
+    document.getElementById("calc").addEventListener("click", calc);
+    document.getElementById("x").addEventListener("input", calc);
+    document.getElementById("y").addEventListener("input", calc);
+    document.getElementById("mode").addEventListener("change", calc);
+  </script>
+</body>
+</html>
