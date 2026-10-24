@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Discount Calculator — Sale Price & Savings | FreeTools</title>
+  <meta name="description" content="Find the final price after a percentage discount and how much money you save. A simple private discount calculator.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://mazooniosman299-blip.github.io/freetools/discount.html">
+  <link rel="stylesheet" href="styles.css">
+  <meta name="theme-color" content="#0f766e">
+</head>
+<body data-tool="discount">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="FreeTools home">FreeTools</a>
+      <nav class="nav" aria-label="Main navigation"><a href="index.html">Tools</a><a href="about.html">About</a><a href="privacy.html">Privacy</a></nav>
+      <div class="header-actions"><button type="button" id="lang-toggle" class="btn-icon" aria-label="Change language">العربية</button><button type="button" id="theme-toggle" class="btn-icon" aria-label="Toggle dark mode">🌙</button></div>
+    </div>
+  </header>
+  <main class="container tool-page">
+    <a class="back-link" href="index.html">← All tools</a>
+    <h1 id="calc-title">Discount Calculator</h1>
+    <p id="calc-description" class="tool-desc">Know your savings before you buy. This calculator works with any currency when you enter the original price and discount percentage.</p>
+    <section class="card" aria-label="Calculator">
+      <div id="calc-form"></div>
+      <button type="button" class="btn" id="calc-button">Calculate</button>
+      <div id="result" class="result-box" role="status" aria-live="polite" hidden>
+        <div class="value" id="result-value"></div>
+        <div class="label" id="result-detail"></div>
+      </div>
+    </section>
+    <section class="seo-content" aria-label="How this calculator works">
+      <h2>How to use this tool</h2>
+      <p>Enter the original price and discount percentage from 0 to 100. Savings = original price × discount percentage ÷ 100. Final price = original price − savings. For multiple successive discounts, calculate them one at a time instead of adding their percentages. Taxes and fees are not included.</p>
+      <div class="card" style="margin-top:1.25rem">
+        <h2>Important note</h2>
+        <p id="calc-note">This tool provides general estimates. Check the result before using it for important decisions.</p>
+        <p style="margin-top:.75rem">Your entries are processed on your device; calculator inputs are not sent to a server.</p>
+      </div>
+      <p>Explore more <a href="index.html">free calculators and converters</a>.</p>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><span>© 2026 FreeTools</span><div class="footer-links"><a href="about.html">About</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a></div></div></footer>
+  <script src="i18n.js"></script>
+  <script src="app.js"></script>
+  <script src="calc-tools.js"></script>
+</body>
+</html>
