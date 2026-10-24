@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Age Calculator — Exact Age in Years Months Days | FreeTools</title>
+  <meta name="description" content="Free age calculator. Find your exact age in years, months and days from date of birth. Arabic & English.">
+  <link rel="canonical" href="https://mazooniosman299-blip.github.io/freetools/age.html">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">FreeTools</a>
+      <div class="header-actions">
+        <button id="lang-toggle" class="btn-icon">العربية</button>
+        <button id="theme-toggle" class="btn-icon">🌙</button>
+      </div>
+    </div>
+  </header>
+  <main class="tool-page container">
+    <a href="index.html" class="back-link">← Back</a>
+    <h1>Age Calculator</h1>
+    <p class="tool-desc">Calculate exact age from birth date to today (or any date).</p>
+    <div class="card">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Date of birth</label>
+          <input type="date" id="dob">
+        </div>
+        <div class="form-group">
+          <label>As of (optional)</label>
+          <input type="date" id="asof">
+        </div>
+      </div>
+      <button class="btn" id="calc">Calculate Age</button>
+      <div class="result-box" id="result" style="display:none">
+        <div class="value" id="res-val">—</div>
+        <div class="label" id="res-label"></div>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><p>© 2026 FreeTools</p></div></footer>
+  <script src="i18n.js"></script>
+  <script src="app.js"></script>
+  <script>
+    document.getElementById("asof").valueAsDate = new Date();
+    function calc() {
+      const dob = new Date(document.getElementById("dob").value);
+      const asof = new Date(document.getElementById("asof").value || Date.now());
+      if (isNaN(dob) || isNaN(asof) || asof < dob) return;
+      let y = asof.getFullYear() - dob.getFullYear();
+      let m = asof.getMonth() - dob.getMonth();
+      let d = asof.getDate() - dob.getDate();
+      if (d < 0) {
+        m--;
+        const prev = new Date(asof.getFullYear(), asof.getMonth(), 0);
+        d += prev.getDate();
+      }
+      if (m < 0) { y--; m += 12; }
+      document.getElementById("result").style.display = "block";
+      document.getElementById("res-val").textContent = `${y} y ${m} m ${d} d`;
+      document.getElementById("res-label").textContent = `Years: ${y}, Months: ${m}, Days: ${d}`;
+    }
+    document.getElementById("calc").addEventListener("click", calc);
+    document.getElementById("dob").addEventListener("change", calc);
+    document.getElementById("asof").addEventListener("change", calc);
+  </script>
+</body>
+</html>
