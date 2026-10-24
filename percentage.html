@@ -58,11 +58,16 @@
       const mode = document.getElementById("mode").value;
       const x = parseFloat(document.getElementById("x").value);
       const y = parseFloat(document.getElementById("y").value);
-      if (isNaN(x) || isNaN(y)) return;
+      if (!Number.isFinite(x) || !Number.isFinite(y) || (mode === "is" && y === 0) || (mode === "change" && x === 0)) {
+        document.getElementById("result").style.display = "block";
+        document.getElementById("res-val").textContent = "—";
+        document.getElementById("res-label").textContent = "Enter valid numbers. The comparison base must not be zero.";
+        return;
+      }
       let out, label;
       if (mode === "of") { out = (x / 100) * y; label = `${x}% of ${y} = ${out}`; }
-      else if (mode === "is") { out = y === 0 ? 0 : (x / y) * 100; label = `${x} is ${out.toFixed(2)}% of ${y}`; }
-      else { out = y === 0 ? 0 : ((y - x) / x) * 100; label = `Change from ${x} to ${y} = ${out.toFixed(2)}%`; }
+      else if (mode === "is") { out = (x / y) * 100; label = `${x} is ${out.toFixed(2)}% of ${y}`; }
+      else { out = ((y - x) / x) * 100; label = `Change from ${x} to ${y} = ${out.toFixed(2)}%`; }
       document.getElementById("result").style.display = "block";
       document.getElementById("res-val").textContent = typeof out === "number" ? parseFloat(out.toPrecision(8)) : out;
       document.getElementById("res-label").textContent = label;
