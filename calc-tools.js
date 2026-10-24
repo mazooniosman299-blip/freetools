@@ -61,9 +61,8 @@ function buildForm(saved={}) {
  Object.entries(saved).forEach(([k,v])=>{ if(k!=="category" && $(k) && $(k).closest("#calc-form") && Array.from($(k).options||[]).length && !Array.from($(k).options).some(o=>o.value===v))return; if(k!=="category" && $(k) && $(k).closest("#calc-form")) $(k).value=v; });
  if(tool==="unit" && !saved.to) $("to").selectedIndex=1;
  if(tool==="date" && !saved.start && !saved.end){const d=new Date();$("end").value=d.toISOString().slice(0,10);d.setUTCDate(d.getUTCDate()-7);$("start").value=d.toISOString().slice(0,10);}
- area.addEventListener("input", calculate, {once:true}); // new form is replaced on each language/category change
- area.addEventListener("input", calculate);
- area.addEventListener("change", e=>{ if(tool==="unit"&&e.target.id==="category"){const s=snapshot();delete s.from;delete s.to;buildForm(s);} calculate();});
+ area.oninput = calculate;
+ area.onchange = e=>{ if(tool==="unit"&&e.target.id==="category"){const s=snapshot();delete s.from;delete s.to;buildForm(s);} calculate();};
  calculate();
 }
 function convertTemperature(n,from,to){
