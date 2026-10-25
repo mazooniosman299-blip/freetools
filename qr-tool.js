@@ -2,7 +2,7 @@
 (() => {
 "use strict";
 const $ = id => document.getElementById(id);
-const ar = () => localStorage.getItem("ft_lang") === "ar";
+const ar = () => document.documentElement.lang === "ar";
 const T = (en,a) => ar()?a:en;
 const message = (en,a) => { $("qr-message").textContent=T(en,a); };
 let lastCanvas = null;

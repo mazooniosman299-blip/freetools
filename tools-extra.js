@@ -2,7 +2,7 @@
 (() => {
 "use strict";
 const $ = id => document.getElementById(id);
-const isAr = () => localStorage.getItem("ft_lang") === "ar";
+const isAr = () => document.documentElement.lang === "ar";
 const T = (en, ar) => isAr() ? ar : en;
 const show = (id, en, ar) => { const el = $(id); if (el) el.textContent = T(en, ar); };
 function translatePage() {

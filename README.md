@@ -14,3 +14,6 @@ Designed for GitHub Pages from repository root on the `main` branch. GitHub Page
 Approval, publisher ID, advertising consent requirements, and site eligibility must be verified directly with Google. No live ad code or fictional publisher ID is included. The owner’s GitHub Pages root already has an authorized publisher entry. The site homepage includes a Google AdSense account verification meta tag. This does NOT establish account/site approval or enable ad delivery; CMP and live ad code require a separate approval check.
 
 All currently implemented tool calculations and files are processed locally in the browser. QR creation uses the vendored MIT-licensed qrcodejs library; see `vendor/qrcode.LICENSE`.
+
+## Editorial learning guides
+In addition to the calculators, the homepage links to six practical tutorials (BMI, percentages, unit conversion, QR code design, password protection, image formats). Guides include original English explanations and Arabic summaries. Google AdSense application and ad serving require separate verified publisher access; no publisher identity is assumed based on a code snippet.
