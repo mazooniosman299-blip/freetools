@@ -6,7 +6,7 @@ const translations = {
     nav_contact: "Contact",
     nav_terms: "Terms",
     hero_title: "Free Online Calculators & Converters",
-    hero_sub: "Fast, accurate, private tools. No signup. Works offline after first load. Arabic & English.",
+    hero_sub: "Fast, accurate, private tools. No signup. Arabic & English. No signup required.",
     search_placeholder: "Search tools… e.g. BMI, cm to inch, percentage",
     tools_heading: "Popular Tools",
     why_title: "Why use FreeTools?",
@@ -27,7 +27,10 @@ const translations = {
       loan: { title: "Loan / EMI Calculator", desc: "Monthly payment, total interest" },
       calorie: { title: "BMR & Calorie Calculator", desc: "Daily calorie needs (Mifflin formula)" },
       date: { title: "Date Difference", desc: "Days between two dates" },
-      word: { title: "Word & Character Counter", desc: "Count words, characters, reading time" }
+      word: { title: "Word & Character Counter", desc: "Count words, characters, reading time" },
+      password: { title: "Secure Password Generator", desc: "Private, random, customizable passwords" },
+      json: { title: "JSON Formatter & Validator", desc: "Validate, format, minify and download JSON" },
+      image: { title: "Image Compressor & Converter", desc: "Compress JPEG/WebP and convert image formats" }
     }
   },
   ar: {
@@ -37,7 +40,7 @@ const translations = {
     nav_contact: "تواصل",
     nav_terms: "الشروط",
     hero_title: "حاسبات ومحولات مجانية أونلاين",
-    hero_sub: "أدوات سريعة ودقيقة وخاصة. بدون تسجيل. تعمل بدون إنترنت بعد التحميل. عربي وإنجليزي.",
+    hero_sub: "أدوات سريعة ودقيقة وخاصة. بدون تسجيل. عربي وإنجليزي. بدون تسجيل.",
     search_placeholder: "ابحث عن أداة… مثل BMI، سم إلى إنش، نسبة مئوية",
     tools_heading: "الأدوات الشائعة",
     why_title: "لماذا FreeTools؟",
@@ -58,7 +61,10 @@ const translations = {
       loan: { title: "حاسبة القرض / القسط", desc: "القسط الشهري وإجمالي الفائدة" },
       calorie: { title: "حاسبة السعرات والـ BMR", desc: "احتياجك اليومي من السعرات (معادلة ميفلين)" },
       date: { title: "الفرق بين تاريخين", desc: "عدد الأيام بين تاريخين" },
-      word: { title: "عداد الكلمات والأحرف", desc: "عد الكلمات والأحرف ووقت القراءة" }
+      word: { title: "عداد الكلمات والأحرف", desc: "عد الكلمات والأحرف ووقت القراءة" },
+      password: { title: "مولّد كلمات مرور آمنة", desc: "كلمات مرور عشوائية وخاصة وقابلة للتخصيص" },
+      json: { title: "منسّق وفاحص JSON", desc: "افحص JSON ونسّقه وصغّره ونزّله" },
+      image: { title: "ضغط الصور وتحويل الصيغ", desc: "اضغط صور JPEG وWebP وحوّل صيغ الصور" }
     }
   }
 };

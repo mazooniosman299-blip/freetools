@@ -8,10 +8,13 @@ const TOOLS = [
   { id: "loan", href: "loan.html", icon: "🏦" },
   { id: "calorie", href: "calorie.html", icon: "🔥" },
   { id: "date", href: "date.html", icon: "📅" },
-  { id: "word", href: "word.html", icon: "📝" }
+  { id: "word", href: "word.html", icon: "📝" },
+  { id: "password", href: "password.html", icon: "🔐" },
+  { id: "json", href: "json.html", icon: "🧩" },
+  { id: "image", href: "image.html", icon: "🖼️" }
 ];
 
-function renderTools(filter = "") {
+function renderTools(filter = document.getElementById("tool-search")?.value || "") {
   const grid = document.getElementById("tools-grid");
   if (!grid) return;
   const t = translations[currentLang].tools;
