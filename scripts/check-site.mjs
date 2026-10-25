@@ -2,7 +2,7 @@ import fs from "node:fs";
 import vm from "node:vm";
 import assert from "node:assert/strict";
 const read = name => fs.readFileSync(new URL("../" + name, import.meta.url), "utf8");
-const tools = ["unit","bmi","percentage","age","tip","discount","loan","calorie","date","word","password","json","image"];
+const tools = ["unit","bmi","percentage","age","tip","discount","loan","calorie","date","word","password","json","image","qr"];
 const htmlPages = ["index",...tools,"about","privacy","terms","contact"];
 for (const p of htmlPages) {
  const s=read(p+".html");
@@ -19,7 +19,7 @@ for (const p of htmlPages) {
   if(m[1].trim())new vm.Script(m[1],{filename:p+".html inline"});
  }
 }
-for (const p of ["app.js","i18n.js","calc-tools.js","tools-extra.js"]) new vm.Script(read(p),{filename:p});
+for (const p of ["app.js","i18n.js","calc-tools.js","tools-extra.js","qr-tool.js","vendor/qrcode.min.js"]) new vm.Script(read(p),{filename:p});
 const siteMap=read("sitemap.xml"), URLs=[...siteMap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(x=>x[1]);
 assert.equal(URLs.length,htmlPages.length+1,"sitemap must list all HTML pages plus guide-bmi");
 for (const u of URLs) {
@@ -54,4 +54,4 @@ for(const test of cases){
  el("calc-button").handlers.click();
  assert.equal(el("result-value").textContent,test.want,test.tool+" computation");
 }
-console.log("PASS: 18 HTML pages, linked resources, sitemap, JS syntax and 8 calculator scenarios.");
+console.log("PASS: 19 HTML pages, linked resources, sitemap, JS syntax and 8 calculator scenarios.");

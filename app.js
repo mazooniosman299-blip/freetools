@@ -11,7 +11,8 @@ const TOOLS = [
   { id: "word", href: "word.html", icon: "📝" },
   { id: "password", href: "password.html", icon: "🔐" },
   { id: "json", href: "json.html", icon: "🧩" },
-  { id: "image", href: "image.html", icon: "🖼️" }
+  { id: "image", href: "image.html", icon: "🖼️" },
+  { id: "qr", href: "qr.html", icon: "▦" }
 ];
 
 function renderTools(filter = document.getElementById("tool-search")?.value || "") {

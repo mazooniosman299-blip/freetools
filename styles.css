@@ -285,3 +285,6 @@ body {
 .extra-preview img[hidden],a[hidden] {display:none !important}
 button:disabled {opacity:.6;cursor:not-allowed}
 :focus-visible {outline:3px solid var(--primary);outline-offset:2px}
+
+.qr-output {display:flex;justify-content:center;margin:1rem 0;min-height:0}
+.qr-output img, .qr-output canvas {max-width:100%;height:auto;border:12px solid white;border-radius:8px}

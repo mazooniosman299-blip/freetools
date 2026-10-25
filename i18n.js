@@ -30,7 +30,8 @@ const translations = {
       word: { title: "Word & Character Counter", desc: "Count words, characters, reading time" },
       password: { title: "Secure Password Generator", desc: "Private, random, customizable passwords" },
       json: { title: "JSON Formatter & Validator", desc: "Validate, format, minify and download JSON" },
-      image: { title: "Image Compressor & Converter", desc: "Compress JPEG/WebP and convert image formats" }
+      image: { title: "Image Compressor & Converter", desc: "Compress JPEG/WebP and convert image formats" },
+      qr: { title: "QR Code Generator", desc: "Create downloadable QR codes locally" }
     }
   },
   ar: {
@@ -64,7 +65,8 @@ const translations = {
       word: { title: "عداد الكلمات والأحرف", desc: "عد الكلمات والأحرف ووقت القراءة" },
       password: { title: "مولّد كلمات مرور آمنة", desc: "كلمات مرور عشوائية وخاصة وقابلة للتخصيص" },
       json: { title: "منسّق وفاحص JSON", desc: "افحص JSON ونسّقه وصغّره ونزّله" },
-      image: { title: "ضغط الصور وتحويل الصيغ", desc: "اضغط صور JPEG وWebP وحوّل صيغ الصور" }
+      image: { title: "ضغط الصور وتحويل الصيغ", desc: "اضغط صور JPEG وWebP وحوّل صيغ الصور" },
+      qr: { title: "مولّد رموز QR", desc: "أنشئ رمز QR قابل للتنزيل دون رفع بياناتك" }
     }
   }
 };
