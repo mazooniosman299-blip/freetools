@@ -11,6 +11,6 @@ Install Node.js 18+ and run `node scripts/check-site.mjs` to validate links, sit
 Designed for GitHub Pages from repository root on the `main` branch. GitHub Pages must be enabled in repository settings by an authorized maintainer; committing code alone does not guarantee publication.
 
 ## AdSense
-Approval, publisher ID, advertising consent requirements, and site eligibility must be verified directly with Google. No live ad code or fictional publisher ID is included. Set up `ads.txt` only with the real authorized publisher ID after confirmation.
+Approval, publisher ID, advertising consent requirements, and site eligibility must be verified directly with Google. No live ad code or fictional publisher ID is included. The owner’s GitHub Pages root already has an authorized publisher entry. The site homepage includes a Google AdSense account verification meta tag. This does NOT establish account/site approval or enable ad delivery; CMP and live ad code require a separate approval check.
 
 All currently implemented tool calculations and files are processed locally in the browser. QR creation uses the vendored MIT-licensed qrcodejs library; see `vendor/qrcode.LICENSE`.
