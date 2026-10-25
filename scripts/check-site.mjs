@@ -12,7 +12,7 @@ for (const p of [...htmlPages,...guides]) {
  for (const m of s.matchAll(/(?:href|src)="([^"]+)"/g)) {
   const path=m[1];
   if (/^[\w./-]+\.(?:html|css|js|xml)$/.test(path)) {
-   assert(fs.existsSync(new URL("../"+path,import.meta.url)),p+" broken link: "+path);
+   assert(fs.existsSync(new URL(path,new URL("../"+p+".html",import.meta.url))),p+" broken link: "+path);
   }
  }
  for(const m of s.matchAll(/<script(?:\s+[^>]*)?>([\s\S]*?)<\/script>/gi)){
