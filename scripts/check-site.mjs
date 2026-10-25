@@ -4,7 +4,8 @@ import assert from "node:assert/strict";
 const read = name => fs.readFileSync(new URL("../" + name, import.meta.url), "utf8");
 const tools = ["unit","bmi","percentage","age","tip","discount","loan","calorie","date","word","password","json","image","qr","text","base64"];
 const htmlPages = ["index",...tools,"about","privacy","terms","contact"];
-for (const p of htmlPages) {
+const guides = ["guides/how-to-calculate-bmi","guides/percentage-explained","guides/unit-conversion-guide"];
+for (const p of [...htmlPages,...guides]) {
  const s=read(p+".html");
  assert.match(s, /<title>[\s\S]+?<\/title>/i, p+" missing title");
  assert.match(s, /<meta name="description"/i, p+" missing description");
@@ -27,7 +28,8 @@ for (const tool of tools) {
  assert.match(langSource,new RegExp('\\b'+tool+':\\s*\\{'),"missing i18n entry "+tool);
 }
 const siteMap=read("sitemap.xml"), URLs=[...siteMap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(x=>x[1]);
-assert.equal(URLs.length,htmlPages.length+1,"sitemap must list all HTML pages plus guide-bmi");
+assert.equal(URLs.length,htmlPages.length+guides.length,"sitemap must list all main pages plus three guides");
+for(const p of guides){assert.match(home,new RegExp('href="'+p+'.html"'),"missing homepage guide "+p);}
 for (const u of URLs) {
  const path=new URL(u).pathname.replace(/^\/freetools\/?/,"")||"index.html";
  assert(fs.existsSync(new URL("../"+path,import.meta.url)),"sitemap URL missing "+u);
@@ -60,4 +62,4 @@ for(const test of cases){
  el("calc-button").handlers.click();
  assert.equal(el("result-value").textContent,test.want,test.tool+" computation");
 }
-console.log("PASS: 21 HTML pages, 16 indexed tool links, resources, translations, sitemap, JS syntax and 8 calculator scenarios.");
+console.log("PASS: 21 HTML pages, 16 indexed tool links and 3 explanatory guides, resources, translations, sitemap, JS syntax and 8 calculator scenarios.");

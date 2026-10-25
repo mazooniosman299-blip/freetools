@@ -55,11 +55,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
-    <loc>https://mazooniosman299-blip.github.io/freetools/guide-bmi.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
+
   <url>
     <loc>https://mazooniosman299-blip.github.io/freetools/about.html</loc>
     <changefreq>yearly</changefreq>
@@ -86,4 +82,7 @@
   <url><loc>https://mazooniosman299-blip.github.io/freetools/qr.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
 <url><loc>https://mazooniosman299-blip.github.io/freetools/text.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 <url><loc>https://mazooniosman299-blip.github.io/freetools/base64.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mazooniosman299-blip.github.io/freetools/guides/how-to-calculate-bmi.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mazooniosman299-blip.github.io/freetools/guides/percentage-explained.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mazooniosman299-blip.github.io/freetools/guides/unit-conversion-guide.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>
