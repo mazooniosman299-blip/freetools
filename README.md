@@ -2,7 +2,7 @@
 
 Static, client-side Arabic/English tools. No server or paid API is required.
 
-**Included (14):** Unit Converter, BMI, Percentage, Age, Tip, Discount, Loan/EMI, BMR/Calories, Date Difference, Word Counter, Secure Password Generator, JSON Formatter/Validator, Image Compressor/Converter, QR Code Generator.
+**Included (16):** Unit Converter, BMI, Percentage, Age, Tip, Discount, Loan/EMI, BMR/Calories, Date Difference, Word Counter, Secure Password Generator, JSON Formatter/Validator, Image Compressor/Converter, QR Code Generator, Text Case & Cleanup, Unicode Base64 Encoder/Decoder.
 
 ## Development
 Install Node.js 18+ and run `node scripts/check-site.mjs` to validate links, sitemap, JavaScript syntax and calculator examples.

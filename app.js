@@ -12,7 +12,9 @@ const TOOLS = [
   { id: "password", href: "password.html", icon: "🔐" },
   { id: "json", href: "json.html", icon: "🧩" },
   { id: "image", href: "image.html", icon: "🖼️" },
-  { id: "qr", href: "qr.html", icon: "▦" }
+  { id: "qr", href: "qr.html", icon: "▦" },
+  { id: "text", href: "text.html", icon: "✍️" },
+  { id: "base64", href: "base64.html", icon: "🔣" }
 ];
 
 function renderTools(filter = document.getElementById("tool-search")?.value || "") {

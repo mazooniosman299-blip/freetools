@@ -38,7 +38,9 @@ const translations = {
       password: { title: "Secure Password Generator", desc: "Private, random, customizable passwords" },
       json: { title: "JSON Formatter & Validator", desc: "Validate, format, minify and download JSON" },
       image: { title: "Image Compressor & Converter", desc: "Compress JPEG/WebP and convert image formats" },
-      qr: { title: "QR Code Generator", desc: "Create downloadable QR codes locally" }
+      qr: { title: "QR Code Generator", desc: "Create downloadable QR codes locally" },
+      text: { title: "Text Case & Cleanup Tools", desc: "Change letter case and clean up lines" },
+      base64: { title: "Base64 Encoder & Decoder", desc: "Encode or decode Unicode text as Base64" }
     }
   },
   ar: {
@@ -80,12 +82,15 @@ const translations = {
       password: { title: "مولّد كلمات مرور آمنة", desc: "كلمات مرور عشوائية وخاصة وقابلة للتخصيص" },
       json: { title: "منسّق وفاحص JSON", desc: "افحص JSON ونسّقه وصغّره ونزّله" },
       image: { title: "ضغط الصور وتحويل الصيغ", desc: "اضغط صور JPEG وWebP وحوّل صيغ الصور" },
-      qr: { title: "مولّد رموز QR", desc: "أنشئ رمز QR قابل للتنزيل دون رفع بياناتك" }
+      qr: { title: "مولّد رموز QR", desc: "أنشئ رمز QR قابل للتنزيل دون رفع بياناتك" },
+      text: { title: "تحويل حالة النص وتنظيفه", desc: "تحويل الحروف وتنظيف الأسطر والتكرار" },
+      base64: { title: "ترميز وفك Base64", desc: "ترميز النصوص العربية أو فكها باستخدام UTF-8" }
     }
   }
 };
 
-let currentLang = localStorage.getItem("ft_lang") || (navigator.language.startsWith("ar") ? "ar" : "en");
+const queryLang = new URLSearchParams(window.location.search).get("lang");
+let currentLang = ["en","ar"].includes(queryLang) ? queryLang : (localStorage.getItem("ft_lang") || (navigator.language.startsWith("ar") ? "ar" : "en"));
 
 function applyI18n() {
   const t = translations[currentLang];
