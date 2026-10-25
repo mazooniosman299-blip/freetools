@@ -20,23 +20,25 @@ function renderTools(filter = document.getElementById("tool-search")?.value || "
   if (!grid) return;
   const t = translations[currentLang].tools;
   const q = filter.trim().toLowerCase();
-
-  grid.innerHTML = TOOLS
-    .filter(tool => {
-      if (!q) return true;
-      const title = (t[tool.id]?.title || "").toLowerCase();
-      const desc = (t[tool.id]?.desc || "").toLowerCase();
-      return title.includes(q) || desc.includes(q) || tool.id.includes(q);
-    })
-    .map(tool => `
+  const matched = TOOLS.filter(tool => {
+    if (!q) return true;
+    const title = (t[tool.id]?.title || "").toLowerCase();
+    const desc = (t[tool.id]?.desc || "").toLowerCase();
+    return title.includes(q) || desc.includes(q) || tool.id.includes(q);
+  });
+  grid.innerHTML = matched.map(tool => `
       <a class="tool-card" href="${tool.href}">
-        <span class="icon">${tool.icon}</span>
+        <span class="icon" aria-hidden="true">${tool.icon}</span>
         <h3>${t[tool.id]?.title || tool.id}</h3>
         <p>${t[tool.id]?.desc || ""}</p>
       </a>
     `).join("");
+  const empty = document.getElementById("search-empty");
+  if (empty) {
+    empty.hidden = matched.length > 0;
+    empty.textContent = currentLang === "ar" ? "لا توجد أدوات مطابقة. جرّب بحثاً آخر." : "No matching tools found. Try another search.";
+  }
 }
-
 function initTheme() {
   const saved = localStorage.getItem("ft_theme");
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;

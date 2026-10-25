@@ -10,7 +10,7 @@ for (const p of htmlPages) {
  assert.match(s, /<meta name="description"/i, p+" missing description");
  for (const m of s.matchAll(/(?:href|src)="([^"]+)"/g)) {
   const path=m[1];
-  if (/^[\w.-]+\.(?:html|css|js|xml)$/.test(path)) {
+  if (/^[\w./-]+\.(?:html|css|js|xml)$/.test(path)) {
    assert(fs.existsSync(new URL("../"+path,import.meta.url)),p+" broken link: "+path);
   }
  }
@@ -20,6 +20,12 @@ for (const p of htmlPages) {
  }
 }
 for (const p of ["app.js","i18n.js","calc-tools.js","tools-extra.js","qr-tool.js","vendor/qrcode.min.js"]) new vm.Script(read(p),{filename:p});
+const home = read("index.html");
+for (const tool of tools) assert.match(home, new RegExp('href="'+tool+'.html"'), "homepage missing crawlable link to "+tool);
+const langSource=read("i18n.js");
+for (const tool of tools) {
+ assert.match(langSource,new RegExp('\\b'+tool+':\\s*\\{'),"missing i18n entry "+tool);
+}
 const siteMap=read("sitemap.xml"), URLs=[...siteMap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(x=>x[1]);
 assert.equal(URLs.length,htmlPages.length+1,"sitemap must list all HTML pages plus guide-bmi");
 for (const u of URLs) {
@@ -54,4 +60,4 @@ for(const test of cases){
  el("calc-button").handlers.click();
  assert.equal(el("result-value").textContent,test.want,test.tool+" computation");
 }
-console.log("PASS: 19 HTML pages, linked resources, sitemap, JS syntax and 8 calculator scenarios.");
+console.log("PASS: 19 HTML pages, 14 indexed tool links, resources, translations, sitemap, JS syntax and 8 calculator scenarios.");
